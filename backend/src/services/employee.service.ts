@@ -7,7 +7,7 @@ export const generateEmployeeId = async (): Promise<string> => {
     { $inc: { sequence: 1 } },
     {
       upsert: true,
-      new: true,
+      returnDocument: "after",
     }
   );
 

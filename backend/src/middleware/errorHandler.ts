@@ -26,6 +26,15 @@ export const errorHandler = (
     });
   }
 
+  // MongoDB duplicate key error (e.g. unique email/employeeId already exists)
+  if ((err as any)?.code === 11000) {
+    const field = Object.keys((err as any).keyValue ?? {})[0] ?? "field";
+    return res.status(400).json({
+      success: false,
+      message: `An employee with this ${field} already exists`,
+    });
+  }
+
   console.error(err);
 
   return res.status(500).json({
