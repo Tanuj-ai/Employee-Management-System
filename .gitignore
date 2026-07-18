@@ -1,0 +1,19 @@
+# dependencies
+**/node_modules
+
+# env files
+**/.env
+**/.env.*.local
+
+# backend build output
+backend/dist
+
+# next.js
+frontend/.next/
+frontend/out/
+frontend/next-env.d.ts
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
