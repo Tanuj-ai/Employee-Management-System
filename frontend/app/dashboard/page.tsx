@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import StatsCards from "@/components/dashboard/StatsCards";
 import EmployeeChart from "@/components/dashboard/EmployeeChart";
-import EmployeeTable from "@/components/employees/EmployeeTable";
 import { useAuth } from "@/lib/AuthContext";
 
 export default function DashboardPage() {
@@ -30,8 +29,6 @@ export default function DashboardPage() {
       <StatsCards />
 
       <EmployeeChart />
-
-      <EmployeeTable />
     </main>
   );
 }
