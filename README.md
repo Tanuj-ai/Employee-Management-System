@@ -90,11 +90,40 @@ The frontend's API base URL is currently hardcoded to `http://localhost:5000/api
 - **HR Manager**: create/edit/view employees; cannot delete; cannot assign the Super Admin role (enforced both in the UI and on the backend).
 - **Employee**: can only view/edit their own profile via `/dashboard/profile`, and only limited fields (phone, photo) — enforced server-side by a dedicated `GET/PATCH /api/employees/me` pair with its own restricted Zod schema, not just hidden UI.
 
+## 📸 Screenshots
+
+### Login
+
+![Login](screenshots/login.png)
+
+---
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+### Employee List
+
+![Employees](screenshots/employees.png)
+
+---
+
+### Employee Profile
+
+![Profile](screenshots/employee-profile.png)
+
+---
+
+### Organization Tree
+
+![Organization Tree](screenshots/organization-tree.png)
+
 ## Known Limitations
 
 - No UI flow yet to create `User` login accounts for HR Manager/Employee roles (see Test Credentials above) — only employee *records* are created via the UI; the separate `User` auth account must be created manually.
 - Frontend API base URL is hardcoded rather than environment-driven (no `frontend/.env`).
-- `frontend/` and `backend/` are not unified under one git repository (frontend has its own `.git` with a single scaffold commit; backend has none).
 - Route protection in `proxy.ts` is an optimistic cookie-presence check only (per Next.js guidance) — the real authorization is always re-verified by the backend on every API call.
 - Bonus features not implemented this session: CSV import, Docker, automated tests, live deployment.
 - Organization tree endpoint builds the tree in-memory (O(n²) recursive filter) — fine for small/medium orgs, not optimized for very large employee counts.
